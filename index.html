@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    
+</head>
+<body>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    
+    var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+    url += '?' + $.param({
+  'api-key': "f22d6d35cb4e4274af6aa57019dfce45",
+  //Be sure to change the title search below! 'q' means the "search query term".//
+  'q': "drugs",
+  //Articles to be pulled begin at the date put here. Format is YYYYMMDD.//
+  'begin_date': "19600101",
+  //Articles to be pulled end at the date here. Format is YYYYMMDD.//
+  'end_date': "19800101",
+    });
+
+    $.ajax({
+        url: url,
+        method: 'GET',
+    }).then(function(response) {
+        console.log(response.response.docs);
+
+        var results = response.response.docs;
+
+        for (i=0; i < results.length; i++); {
+            var newDiv = $("<div>");
+            
+            console.log(results.length);
+
+            var snippet = results.response[i].snippet;
+            var records = 
+
+
+
+        }
+
+    })
+
+    </script>
+</body>
+</html>
